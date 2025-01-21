@@ -1,0 +1,40 @@
+.on_hold_switch {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.total_section {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin-top: 24px;
+}
+
+.product_charges_Section {
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+}
+
+.Cancel_btn {
+    border: none;
+}
+
+.other_charges_section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.total_option {
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* .total_section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */

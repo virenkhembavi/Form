@@ -149,19 +149,19 @@ export default function FuelVoucherForm() {
                 form={form}
                 layout="vertical"
                 initialValues={{
-                    supplier: "",
-                    terminal: "",
-                    shippedVia: "",
-                    terms: "",
+                    // supplier: "",
+                    // terminal: "",
+                    // shippedVia: "",
+                    // terms: "",
                     paymentOnHold: false,
                     bol: false,
-                    taxState: "",
-                    refNumber: "",
-                    invoiceNumber: "",
-                    invoiceDate: "",
-                    dueDate: null,
-                    discDueDate: null,
-                    postingDate: null
+                    // taxState: "",
+                    // refNumber: "",
+                    // invoiceNumber: "",
+                    // invoiceDate: "",
+                    // dueDate: null,
+                    // discDueDate: null,
+                    // postingDate: null
                 }}
                 onFinish={handleApiSubmit}
             >
@@ -187,7 +187,7 @@ export default function FuelVoucherForm() {
                             name="terminal"
                             rules={[{ required: true, message: 'terminal is required!' }]}
                         >
-                            <Select showSearch placeholder="Select">
+                            <Select placeholder="Select">
                                 <Option value="Motiva Enterprises LLC-1">Motiva Enterprises LLC-1</Option>
                                 <Option value="Phillips 66 PL - Pasadena">Phillips 66 PL - Pasadena</Option>
                                 <Option value="Magellan Pipeline Company  L.P.-6">Magellan Pipeline Company  L.P.-6</Option>
@@ -201,7 +201,7 @@ export default function FuelVoucherForm() {
                             name="shippedVia"
                             rules={[{ required: true, message: 'shippedVia is required!' }]}
                         >
-                            <Select showSearch placeholder="Select">
+                            <Select placeholder="Select">
                                 <Option value="TTE Company">TTE Company</Option>
                                 <Option value="Always Energy 2">Always Energy 2</Option>
                                 <Option value="Sunoco Company">Sunoco Company</Option>
@@ -215,7 +215,7 @@ export default function FuelVoucherForm() {
                             name="terms"
                             rules={[{ required: true, message: 'terms is required!' }]}
                         >
-                            <Select showSearch placeholder="Select">
+                            <Select placeholder="Select">
                                 <Option value="Net day 1">Net day 1</Option>
                                 <Option value="Net day 7">Net day 7</Option>
                                 <Option value="Net day 10">Net day 10</Option>
@@ -233,7 +233,7 @@ export default function FuelVoucherForm() {
                             required
                             rules={[{ required: true, message: 'terminal is required!' }]}
                         >
-                            <Select showSearch placeholder="Select">
+                            <Select placeholder="Select">
                                 <Option value="Pennsylvania[42]">Pennsylvania[42]</Option>
                             </Select>
                         </Form.Item>
@@ -243,7 +243,7 @@ export default function FuelVoucherForm() {
                             label="Ref #"
                             name="refNumber"
                         >
-                            <Input placeholder="PO number" autoComplete='true' />
+                            <Input placeholder="PO number" autoComplete='true' min={0} type='number'/>
                         </Form.Item>
                     </Col>
                     <Col span={6}>
@@ -363,7 +363,7 @@ export default function FuelVoucherForm() {
                             <Col span={4}>
                                 <Form.Item label="Product" name={['products', index, 'product']}>
                                     <Select
-                                        showSearch
+                                        
                                         placeholder="Select"
                                         value={product.product}
                                         onChange={(value) => {
@@ -412,6 +412,7 @@ export default function FuelVoucherForm() {
                                         type="number"
                                         value={product.grossquantity}
                                         autoComplete='true'
+                                        min={0}
                                         onChange={(e) => {
                                             const updatedProducts = [...products];
                                             updatedProducts[index].grossquantity = e.target.value;
@@ -426,6 +427,7 @@ export default function FuelVoucherForm() {
                                         type="number"
                                         value={product.netquantity}
                                         autoComplete='true'
+                                        min={0}
                                         onChange={(e) => {
                                             const updatedProducts = [...products];
                                             updatedProducts[index].netquantity = e.target.value;
@@ -440,6 +442,7 @@ export default function FuelVoucherForm() {
                                         type="number"
                                         autoComplete='true'
                                         value={product.rate}
+                                        min={0}
                                         onChange={(e) => {
                                             const updatedProducts = [...products];
                                             updatedProducts[index].rate = e.target.value;
@@ -501,7 +504,6 @@ export default function FuelVoucherForm() {
                             <Col span={4}>
                                 <Form.Item label="Chart of account" name={['charges', index, 'chartofaccount']}>
                                     <Select
-                                        showSearch
                                         placeholder="Select"
                                         value={charge.chartofaccount}
                                         onChange={(value) => handleChargeChange(index, 'chartofaccount', value)}
@@ -519,6 +521,7 @@ export default function FuelVoucherForm() {
                                         type="number"
                                         value={charge.quantity}
                                         autoComplete='true'
+                                        min={0}
                                         onChange={(e) => handleChargeChange(index, 'quantity', e.target.value)}
                                     />
                                 </Form.Item>
@@ -529,6 +532,7 @@ export default function FuelVoucherForm() {
                                         type="number"
                                         value={charge.chargesrate}
                                         autoComplete='true'
+                                        min={0}
                                         onChange={(e) => handleChargeChange(index, 'chargesrate', e.target.value)}
                                     />
                                 </Form.Item>
@@ -539,6 +543,7 @@ export default function FuelVoucherForm() {
                                         type="number"
                                         value={charge.disc}
                                         autoComplete='true'
+                                        min={0}
                                         onChange={(e) => handleChargeChange(index, 'disc', e.target.value)}
                                     />
                                 </Form.Item>
@@ -549,6 +554,7 @@ export default function FuelVoucherForm() {
                                         type="number"
                                         value={charge.chargestaxes}
                                         autoComplete='true'
+                                        min={0}
                                         onChange={(e) => handleChargeChange(index, 'chargestaxes', e.target.value)}
                                     />
                                 </Form.Item>
